@@ -1,0 +1,140 @@
+.testimonial{
+    h1{
+        display: flex;
+        justify-content: center;
+    }
+}
+.container{
+    position: relative;
+    overflow: hidden;
+    max-width: 800px;
+    height: 100vh;
+    margin: 0 50px;
+    margin: 0 auto;
+
+    .slider{
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 500%;
+        height: 100%;
+        animation: animate 10s linear infinite;
+
+        .slide{
+            width: 20%;
+            height: 100%;
+            float: left;
+
+            .box{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+                padding: 20px;
+                background-color: rgb(236, 236, 236);
+                min-height: 283px;
+                margin-left: 20px;
+                transition: 0.5s;
+                border-radius: 5px;
+                position: relative;
+
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: 10px;
+                    right: 20px;
+                    width: 80px;
+                    height: 80px;
+                    background: url(../../left-quote.png);
+                    background-size: cover;
+                    opacity: 0.5;
+                    filter: blur(1px);
+                    transition: .5s;
+                }
+
+                &:hover:before{
+                    transform: translateY(-15px);
+                }
+                &:hover{
+                    background-color: #f3f3f3;
+                }
+                .photo{
+                    margin-right: 20px;
+                }
+
+                .details{
+                    p{
+                        margin: 0;
+                        padding: 0;
+                        transition: .5s;
+                        color: #676767;
+                    }
+                    h4{
+                        margin: 20px 0 0;
+                        padding: 0;
+                        transition: .5s;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: 20px;
+                        text-transform: uppercase;
+                        color: #000;
+
+                        span{
+                            font-weight: 600;
+                            font-size: 14px;
+                            color:#c5c5c5;
+                            transition: .5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.box:hover p,
+.box:hover h4,
+.box:hover h4 span{
+    color: #000 !important;
+}
+
+
+
+@keyframes animate {
+    0%{
+        left: 0;
+    }
+    20%{
+        left: 0;
+    }
+    25%{
+        left: -100%;
+    }
+    45%{
+        left: -100%;
+    }
+
+}
+
+@media (max-width: 520px) {
+    .container .slider .slide .box {
+        flex-wrap: wrap;
+        margin: 0 10px;
+    }
+    .testimonial h1 {
+        font-size: 25px;
+    }
+    .container .slider .slide .box .photo img{
+        height: 150px;
+    }
+    .details{
+        text-align: center;
+    }
+    .container .slider .slide .box:before {
+        
+        width: 60px;
+        height: 60px;
+    }
+    
+}
