@@ -66,3 +66,38 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+# Preguntas de la prueba
+## React js ,ciclo de vida de los componentes.
+
+- Estos son los métodos que intervienen en los puntos de construcción, actualización y destrucción de los componentes.
+1. componentWillMount : Este método se ejecuta antes de que el componente sea montado en el DOM
+2. componentDidMount: Este método se ejecuta justo después de que el componente se haya montado en el DOM. Es el lugar ideal para integrar librerías de terceros, peticiones ajax y demás.
+2. componentWillReciveProps: Este método no se ejecuta una vez que se monte el componente sino que esperará las propiedades que vengan del componente padre para ejecutarse.
+4. componentWillUpdate: Similar al anterior solo que se ejecuta justo antes del render, cuando ya se han recibido nuestras propiedades y estados.
+5. shouldComponentUpdate: Se ejecuta igual k el anterior.Retorna true por defecto, si hacemos que retorne false se cancela el render y hasta que no ocurra un cambio de propiedad o de estado no se ejecutarán componentWillUpdate ni componentWillReciveProps.
+6. componentDidUpdate: Se invoca inmediatamente que el componente se actualiza.
+7. componentWillUnmount: Se ejecuta justo antes de que el componente sea destruido.
+
+## El orden de ejecución sería el siguiente:
+### Creación de un componente:
+1. Se dispara el método componentWillMount
+2. Se renderiza y se monta el componente en el DOM
+3. Se dispara el método componentDidMount
+### Actualización de un componente:
+4. Se dispara el método shouldComponentUpdate
+5. Se dispara el método componentWillReceiveProps si recibe nuevas props.
+6. Se dispara el método componentWillUpdate antes de volver a renderizar.
+7. Se actualiza el componente y se renderiza en el DOM
+8. Se dispara el método componentDidUpdate una vez este el componente renderizado.
+### Destrucción de un componente:
+9. Se dispara el método componentWillUnmount antes de que se destruya el componente
+10. El componente es destruido y eliminado del DOM
+
+
+
+## react-router-dom.min.js:1 Uncaught Error: Cannot find module "prop-types"
+- Esto se debe a que a partir de la versión 15 de react prop-types se separó como una dependencia independiente que debes agregarla por npm o a través de un script.
+
+### Utilizando comillas simples const str = (‘Laravel:’ + parseInt(version) + ‘is updated.’)
+
